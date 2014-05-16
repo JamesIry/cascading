@@ -85,6 +85,7 @@ public class TapOutputCollector implements OutputCollector, Closeable
     this.prefix = prefix == null || prefix.length() == 0 ? null : prefix;
     this.flowProcess = flowProcess;
     this.conf = this.flowProcess.getConfigCopy();
+    this.conf.setClassLoader( Thread.currentThread().getContextClassLoader() );
     this.filenamePattern = this.conf.get( "cascading.tapcollector.partname", sequence == -1 ? PART_TASK_PATTERN : PART_TASK_SEQ_PATTERN );
 
     initialize();
