@@ -1,6 +1,8 @@
 Cascading Change Log
 
 2.5.5 [unreleased]
+  Use the context ClassLoader in the JobConf copy returned by c.f.h.HadoopFlowProcess#getConfigCopy() so that classes
+  can be loaded from jars not known at startup. Lingual needs this for local inserts to work properly.
 
   Added new c.f.h.p.HadoopPlanner property to disable adjacent tap removal optimization. Setting
   "cascading.multimapreduceplanner.collapseadjacentaps" to false will disable the optimization that is on by default.

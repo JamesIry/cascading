@@ -121,7 +121,9 @@ public class HadoopFlowProcess extends FlowProcess<JobConf>
   @Override
   public JobConf getConfigCopy()
     {
-    return new JobConf( jobConf );
+    JobConf newConf = new JobConf( jobConf );
+    newConf.setClassLoader( Thread.currentThread().getContextClassLoader() );
+    return newConf;
     }
 
   /**
