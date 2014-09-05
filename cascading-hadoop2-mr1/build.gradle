@@ -32,6 +32,7 @@ if( System.properties[ 'hadoop2mr1.release.final' ] )
 dependencies {
 
   compile project( ':cascading-core' )
+  compile project( ':cascading-hadoop' )
 
   // forces update of yarn slf4j dependencies
   provided group: 'org.slf4j', name: 'slf4j-api', version: '1.7.2'
